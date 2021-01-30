@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <!-- Stylesheet -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="fontawesome/all.min.css">
     <link rel="stylesheet" href="fontawesome/fontawesome.css">
     <link rel="stylesheet" href="style.css">
@@ -30,7 +32,7 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        <div id="book-area" class="booking-form">
             <h3>Booking Flights</h3>
             <div class="inputs">
                 <div class="input-group">
@@ -103,15 +105,42 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="logIn" class="btn-style">Book Now</button>
+        </div>
+        <div id="translation-area">
+            <table style="width:100%">
+                <tr>
+                  <td>First Class</td>
+                  <td>$(150 X 1)</td>
+                  <td>$150</td>
+                </tr>
+                <tr>
+                  <td>Economy</td>
+                  <td>$(100 X 1)</td>
+                  <td>$100</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>$(150 + 100)</td>
+                  <td>$250</td>
+                </tr>
+              </table>
         </div>
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
-                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt
+                nobise
                 voluptatibus quam</p>
         </div>
         <script>
+            const bookBtn = document.getElementById('logIn');
+            bookBtn.addEventListener('click', function () {
+                const bookArea = document.getElementById('book-area');
+                bookArea.style.display = "none";
+                const translationArea = document.getElementById('translation-area');
+                translationArea.style.display = "block";
+            })
             function manageFlightTicket(ticket, isIncrease) {
                 const ticketInput = document.getElementById(ticket + '-count');
                 const ticketCount = getInputValue(ticket)
