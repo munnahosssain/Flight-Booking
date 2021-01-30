@@ -88,7 +88,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$25</p>
+                        <p id="charge-total">$25</p>
                     </div>
                 </div>
                 <hr>
@@ -97,7 +97,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$275</p>
+                        <p id="in-total">$275</p>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@
 
             function manageFlightTicket(ticket, isIncrease) {
                 const ticketInput = document.getElementById(ticket + '-count');
-                const ticketCount = parseInt(ticketInput.value);
+                const ticketCount = getInputValue(ticket)
                 let ticketNewCount = ticketCount;
                 if (isIncrease == true) {
                     ticketNewCount = ticketCount + 1;
@@ -131,6 +131,25 @@
                     ticketTotal = ticketNewCount * 100;
                     document.getElementById('economy-total').innerText = 'Economy ($100' + ' X ' + ticketNewCount + ')';
                 }
+                calculateTotal();
+            }
+            function calculateTotal() {
+                const firstClassCount = getInputValue('first-class');
+                const economyCount = getInputValue('economy');
+
+                const totalPrice = firstClassCount * 150 + economyCount * 100;
+                document.getElementById('total-price').innerText = '$' + totalPrice;
+
+                const charge = totalPrice * 0.1;
+                document.getElementById('charge-total').innerText = '$' + charge;
+
+                const inTotal = totalPrice + charge;
+                document.getElementById('in-total').innerText = '$' + inTotal;
+            }
+            function getInputValue(ticket) {
+                const ticketInput = document.getElementById(ticket + '-count');
+                const ticketCount = parseInt(ticketInput.value);
+                return ticketCount;
             }
 
 
