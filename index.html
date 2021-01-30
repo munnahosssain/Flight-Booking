@@ -32,13 +32,15 @@
     <main class="main-content container">
         <div class="booking-form">
             <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
-            </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            <div class="inputs">
+                <div class="input-group">
+                    <label for="">Flying From</label>
+                    <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                </div>
+                <div class="input-group">
+                    <label for="">Flying To</label>
+                    <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                </div>
             </div>
             <div class="inputs">
                 <div class="input-group">
@@ -55,7 +57,7 @@
                     <label id="first-total" for="">First Class ($150 X 1)</label>
                     <input id="first-class-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
-                <div class="plus-minus-btn">
+                <div class="plus-minus-btn inputs">
                     <button onclick="manageFlightTicket('first-class',true)"
                         class="btn btn-default btn btn-success icon"><i class="fas fa-plus"></i></button>
                     <button onclick="manageFlightTicket('first-class',false)"
@@ -67,7 +69,7 @@
                     <label id="economy-total" for="">Economy ($100 X 1)</label>
                     <input id="economy-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
-                <div class="plus-minus-btn">
+                <div class="plus-minus-btn inputs">
                     <button onclick="manageFlightTicket('economy',true)" class="btn btn-default btn btn-success icon"><i
                             class="fas fa-plus"></i></button>
                     <button onclick="manageFlightTicket('economy',false)"
@@ -110,7 +112,6 @@
                 voluptatibus quam</p>
         </div>
         <script>
-
             function manageFlightTicket(ticket, isIncrease) {
                 const ticketInput = document.getElementById(ticket + '-count');
                 const ticketCount = getInputValue(ticket)
@@ -151,63 +152,8 @@
                 const ticketCount = parseInt(ticketInput.value);
                 return ticketCount;
             }
-
-
-            // function manageBookingFlights(isIncrease) {
-            //     const firstClassInput = document.getElementById('first-class-count');
-            //     const firstClassCount = parseInt(firstClassInput.value);
-            //     if (isIncrease == true) {
-            //         newClassCount = firstClassCount + 1;
-            //     }
-            //     if (isIncrease == false && newClassCount > 0) {
-            //         newClassCount = firstClassCount - 1;
-            //     }
-            //     firstClassInput.value = newClassCount;
-            //     const classTotal = newClassCount * 150;
-            //     document.getElementById('first-total').innerText = 'First Class ($150' + ' X ' + newClassCount + ')';
-            //     calculateTotal()
-            // }
-            // function manageFlightTicket(isIncrease) {
-            //     const economyInput = document.getElementById('economy-count');
-            //     const economyCount = parseInt(economyInput.value);
-            //     if (isIncrease == true) {
-            //         newEconomyCount = economyCount + 1;
-            //     }
-            //     if (isIncrease == false && newEconomyCount > 0) {
-            //         newEconomyCount = economyCount - 1;
-            //     }
-            //     economyInput.value = newEconomyCount;
-            //     const economyTotal = newEconomyCount * 100;
-            //     document.getElementById('economy-total').innerText = 'Economy ($100' + ' X ' + newEconomyCount + ')';
-            //     calculateTotal()
-            // }
-
-
-
-
-
-
-
-
-            // function calculateTotal() {
-            //     const firstClassInput = document.getElementById('first-class-count');
-            //     const firstClassCount = parseInt(firstClassInput.value);
-
-            //     // const economyInput = document.getElementById('economy-count');
-            //     // const economyCount = parseInt(economyInput.value);
-
-            //     const totalPrice = firstClassCount * 150 + economyCount * 100;
-            //     document.getElementById('total-price').innerText = '$' + totalPrice;
-            // }
-            // function getInputValue(ticket) {
-            //     const ticketInput = document.getElementById(ticket + '-count');
-            //     const ticketCount = parseInt(ticketInput.value);
-            //     return ticketCount;
-            // }
-
         </script>
         </section>
-
         <!--Thank You-->
 </body>
 

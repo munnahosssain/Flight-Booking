@@ -96,12 +96,12 @@ nav ul li a:hover, a.active {
 
 .icon {
     border: 1px solid transparent;
-    color: #3352F2;
+    color: #ffffff;
     padding: .375rem .75rem;
 }
 
 .btn-default {
-    background-color: #fff;
+    background-color: #3352f2;
 }
 
 .booking-form input {
