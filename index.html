@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="fontawesome/all.min.css">
+    <link rel="stylesheet" href="fontawesome/fontawesome.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -41,7 +43,7 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -50,30 +52,35 @@
             </div>
             <div class="input-group f-class">
                 <div>
-                    <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label id="first-total" for="">First Class ($150 X 1)</label>
+                    <input id="first-class-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <button id="first-class-increase" class="btn btn-default btn btn-success icon"><i
+                            class="fas fa-plus"></i></button>
+                    <button id="first-class-decrease" class="btn btn-default btn btn-success icon"><i
+                            class="fas fa-minus"></i></button>
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label id="economy-total" for="">Economy ($100)</label>
+                    <input class="inp-style inp-width" type="number" name="" value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
+                    <button class="btn btn-default btn btn-success icon"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-default btn btn-success icon"><i class="fas fa-minus"></i></button>
                 </div>
             </div>
+
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p>$250</p>
                     </div>
                 </div>
 
@@ -82,7 +89,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$25</p>
                     </div>
                 </div>
                 <hr>
@@ -91,7 +98,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$275</p>
                     </div>
                 </div>
             </div>
@@ -100,11 +107,32 @@
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
         </div>
-    </section>
+        <script>
+            document.getElementById('first-class-increase').addEventListener('click', function () {
+                const firstClassInput = document.getElementById('first-class-count');
+                const firstClassCount = parseInt(firstClassInput.value);
+                const newClassCount = firstClassCount + 1;
+                firstClassInput.value = newClassCount;
+                const classTotal = newClassCount * 150;
+                document.getElementById('first-total').innerText = 'First Class ($' + classTotal + ' X ' + newClassCount + ')';
+            });
+            document.getElementById('first-class-decrease').addEventListener('click', function () {
+                const firstClassInput = document.getElementById('first-class-count');
+                const firstClassCount = parseInt(firstClassInput.value);
+                const newClassCount = firstClassCount - 1;
+                firstClassInput.value = newClassCount;
+                const classTotal = newClassCount * 150;
+                document.getElementById('first-total').innerText = 'First Class ($' + classTotal + ' X ' + newClassCount + ')';
+            });
+            
+        </script>
+        </section>
 
-    <!--Thank You-->
+        <!--Thank You-->
 </body>
 
 </html>
