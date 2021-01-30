@@ -56,21 +56,23 @@
                     <input id="first-class-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <button id="first-class-increase" class="btn btn-default btn btn-success icon"><i
+                    <button onclick="manageBookingFlights(true)" class="btn btn-default btn btn-success icon"><i
                             class="fas fa-plus"></i></button>
-                    <button id="first-class-decrease" class="btn btn-default btn btn-success icon"><i
+                    <button onclick="manageBookingFlights(false)" class="btn btn-default btn btn-success icon"><i
                             class="fas fa-minus"></i></button>
                 </div>
             </div>
 
             <div class="input-group f-class">
                 <div>
-                    <label id="economy-total" for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="" value="1">
+                    <label id="economy-total" for="">Economy ($100 X 1)</label>
+                    <input id="economy-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <button class="btn btn-default btn btn-success icon"><i class="fas fa-plus"></i></button>
-                    <button class="btn btn-default btn btn-success icon"><i class="fas fa-minus"></i></button>
+                    <button onclick="manageEconomyFlights(true)" class="btn btn-default btn btn-success icon"><i
+                            class="fas fa-plus"></i></button>
+                    <button onclick="manageEconomyFlights(false)" class="btn btn-default btn btn-success icon"><i
+                            class="fas fa-minus"></i></button>
                 </div>
             </div>
 
@@ -112,13 +114,6 @@
                 voluptatibus quam</p>
         </div>
         <script>
-
-            document.getElementById('first-class-increase').addEventListener('click', function () {
-                manageBookingFlights(true);
-            });
-            document.getElementById('first-class-decrease').addEventListener('click', function () {
-                manageBookingFlights(false);
-            });
             function manageBookingFlights(isIncrease) {
                 const firstClassInput = document.getElementById('first-class-count');
                 const firstClassCount = parseInt(firstClassInput.value);
@@ -130,8 +125,58 @@
                 }
                 firstClassInput.value = newClassCount;
                 const classTotal = newClassCount * 150;
-                document.getElementById('first-total').innerText = 'First Class ($' + classTotal + ' X ' + newClassCount + ')';
+                document.getElementById('first-total').innerText = 'First Class ($150' + ' X ' + newClassCount + ')';
             }
+
+            // document.getElementById('economy-increase').addEventListener('click', function () {
+            //     manageEconomyFlights(true);
+            // });
+            // document.getElementById('economy-decrease').addEventListener('click', function () {
+            //     manageEconomyFlights(false);
+            // });
+            
+            function manageEconomyFlights(isIncrease) {
+                const economyInput = document.getElementById('economy-count');
+                const economyCount = parseInt(economyInput.value);
+                if (isIncrease == true) {
+                    newEconomyCount = economyCount + 1;
+                }
+                if (isIncrease == false && newEconomyCount > 0) {
+                    newEconomyCount = economyCount - 1;
+                }
+                economyInput.value = newEconomyCount;
+                const economyTotal = newEconomyCount * 100;
+                document.getElementById('economy-total').innerText = 'Economy ($100' + ' X ' + newEconomyCount + ')';
+            }
+
+
+            // function manageEconomyFlights() {
+            //     const economyInput = document.getElementById('economy-count');
+            //     const economyCount = parseInt(economyInput.value);
+            //     const newEconomyCount = economyCount - 1;
+            //     economyInput.value = newEconomyCount;
+            //     const economyTotal = newEconomyCount * 100;
+            //     document.getElementById('economy-total').innerText = 'Economy ($' + economyTotal + ' X ' + newEconomyCount + ')';
+            // }
+
+
+            // document.getElementById('economy-increase').addEventListener('click', function () {
+            //     const economyInput = document.getElementById('economy-count');
+            //     const economyCount = parseInt(economyInput.value);
+            //     const newEconomyCount = economyCount + 1;
+            //     economyInput.value = newEconomyCount;
+            //     const economyTotal = newEconomyCount * 100;
+            //     document.getElementById('economy-total').innerText = 'Economy ($' + economyTotal + ' X ' + newEconomyCount + ')';
+
+            // });
+            // document.getElementById('economy-decrease').addEventListener('click', function () {
+            //     const economyInput = document.getElementById('economy-count');
+            //     const economyCount = parseInt(economyInput.value);
+            //     const newEconomyCount = economyCount - 1;
+            //     economyInput.value = newEconomyCount;
+            //     const economyTotal = newEconomyCount * 100;
+            //     document.getElementById('economy-total').innerText = 'Economy ($' + economyTotal + ' X ' + newEconomyCount + ')';
+            // })
 
             // document.getElementById('first-class-increase').addEventListener('click', function () {
             //     const firstClassInput = document.getElementById('first-class-count');
