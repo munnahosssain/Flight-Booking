@@ -112,23 +112,44 @@
                 voluptatibus quam</p>
         </div>
         <script>
+
             document.getElementById('first-class-increase').addEventListener('click', function () {
-                const firstClassInput = document.getElementById('first-class-count');
-                const firstClassCount = parseInt(firstClassInput.value);
-                const newClassCount = firstClassCount + 1;
-                firstClassInput.value = newClassCount;
-                const classTotal = newClassCount * 150;
-                document.getElementById('first-total').innerText = 'First Class ($' + classTotal + ' X ' + newClassCount + ')';
+                manageBookingFlights(true);
             });
             document.getElementById('first-class-decrease').addEventListener('click', function () {
+                manageBookingFlights(false);
+            });
+            function manageBookingFlights(isIncrease) {
                 const firstClassInput = document.getElementById('first-class-count');
                 const firstClassCount = parseInt(firstClassInput.value);
-                const newClassCount = firstClassCount - 1;
+                if (isIncrease == true) {
+                    newClassCount = firstClassCount + 1;
+                }
+                if (isIncrease == false && newClassCount > 0) {
+                    newClassCount = firstClassCount - 1;
+                }
                 firstClassInput.value = newClassCount;
                 const classTotal = newClassCount * 150;
                 document.getElementById('first-total').innerText = 'First Class ($' + classTotal + ' X ' + newClassCount + ')';
-            });
-            
+            }
+
+            // document.getElementById('first-class-increase').addEventListener('click', function () {
+            //     const firstClassInput = document.getElementById('first-class-count');
+            //     const firstClassCount = parseInt(firstClassInput.value);
+            //     const newClassCount = firstClassCount + 1;
+            //     firstClassInput.value = newClassCount;
+            //     const classTotal = newClassCount * 150;
+            //     document.getElementById('first-total').innerText = 'First Class ($' + classTotal + ' X ' + newClassCount + ')';
+            // });
+            // document.getElementById('first-class-decrease').addEventListener('click', function () {
+            //     const firstClassInput = document.getElementById('first-class-count');
+            //     const firstClassCount = parseInt(firstClassInput.value);
+            //     const newClassCount = firstClassCount - 1;
+            //     firstClassInput.value = newClassCount;
+            //     const classTotal = newClassCount * 150;
+            //     document.getElementById('first-total').innerText = 'First Class ($' + classTotal + ' X ' + newClassCount + ')';
+            // });
+
         </script>
         </section>
 
